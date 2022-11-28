@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlumniController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('alumni', AlumniController::class)->parameters(['alumnus'=>'alumni']);
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/create', function () {
+    return view('alumni.create');
 });
